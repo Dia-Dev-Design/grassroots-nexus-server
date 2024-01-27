@@ -10,6 +10,7 @@ const userSchema = new Schema({
     address: Object,
     voterRegistrationNumber: String,
     driversLicenseNumber: String,
+    usPassportNumber: String,
     volunteer: Boolean,
     donations: [{type: Schema.Types.ObjectId, ref: "Donation"}],
     eventsAttended: [{type: Schema.Types.ObjectId, ref: "Event"}]
