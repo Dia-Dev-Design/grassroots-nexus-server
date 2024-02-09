@@ -32,7 +32,7 @@ router.get('/:adminId', function(req, res, next) {
 });
   
 /* POST admin information */
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
     Admin.create({
         fullName: req.body.fullName,
         email: req.body.email,
