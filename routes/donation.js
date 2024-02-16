@@ -77,7 +77,7 @@ router.delete('/:donationId', function(req, res, next) {
             res.status(200).json(deletedDonation);
         })
         .catch((error) => {
-            console.log('Error while deleting donation ===> ', error);
+            console.error('Error while deleting donation ===> ', error);
             res.status(500).json({ error: 'Failed to delete donation' });
         });
 })
