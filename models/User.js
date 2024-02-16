@@ -8,9 +8,10 @@ const userSchema = new Schema({
     userName: String,
     phoneNumber: String,
     address: Object,
-    voterRegistrationNumber: String,
-    driversLicenseNumber: String,
-    volunteer: Boolean,
+    //voterRegistrationNumber: String,
+    //driversLicenseNumber: String,
+    volunteer: { type: Schema.Types.ObjectId, ref: 'Volunteer' },
+    donor: { type: Schema.Types.ObjectId, ref: 'Donor' },
     donations: [{type: Schema.Types.ObjectId, ref: "Donation"}],
     eventsAttended: [{type: Schema.Types.ObjectId, ref: "Event"}]
 
