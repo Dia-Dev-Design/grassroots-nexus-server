@@ -48,7 +48,7 @@ router.post('/', function(req, res, next){
         })
         .catch((error) => {
             console.error('Error while creating donation ===> ', error);
-            res.status(500).json({ error: 'Failed to create donation' });
+            res.status(400).json({ error: 'Failed to create donation' });
         });
 });
 
@@ -74,7 +74,7 @@ router.delete('/:donationId', function(req, res, next) {
     Donation.findByIdAndDelete(donationId)
         .then((deletedDonation) => {
             console.log('Donation deleted ===> ', deletedDonation);
-            res.status(200).json(deletedDonation);
+            res.status(204).json(deletedDonation);
         })
         .catch((error) => {
             console.error('Error while deleting donation ===> ', error);
