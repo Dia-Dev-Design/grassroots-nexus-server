@@ -13,22 +13,6 @@ const userSchema = new Schema(
       state: { type: String, trim: true, default: "" },
       zip: { type: String, trim: true, default: "" }
     },
-    identification: {
-      identificationType: {
-        type: String,
-        enum: [
-          "US Voter Registration",
-          "PR Voter Registration",
-          "US Passport",
-          "US License",
-          "PR Licence"
-        ],
-      },
-      identificationNumber: {
-        type: String,
-        default: ""
-      },
-    },
     volunteer: Boolean,
     donations: [{ type: Schema.Types.ObjectId, ref: "Donation" }],
     eventsAttended: [{ type: Schema.Types.ObjectId, ref: "Event" }],
