@@ -55,7 +55,7 @@ router.post('/', function(req, res, next) {
       })
       .catch((error) => {
             console.error('Error while creating event ===> ', error);
-            res.status(500).json({ error: 'Failed to create event' });
+            res.status(400).json({ error: 'Failed to create event' });
       });
 });
 
@@ -69,7 +69,7 @@ router.put('/:eventId', function(req, res, next) {
             res.status(200).json(updatedEvent)
         })
         .catch((error) => {
-            console.log('Error while updating event ===> ', error);
+            console.error('Error while updating event ===> ', error);
             res.status(500).json({ error: 'Failed to update event' });
         });
 });
@@ -81,10 +81,10 @@ router.delete('/:eventId', function(req, res, next) {
     Event.findByIdAndDelete(eventId)
         .then((deletedEvent) => {
             console.log('Event deleted ===> ', deletedEvent);
-            res.status(200).json(deletedEvent);
+            res.status(204).json(deletedEvent);
         })
         .catch((error) => {
-            console.log('Error while deleting event ===> ', error);
+            console.error('Error while deleting event ===> ', error);
             res.status(500).json({ error: 'Failed to delete event' });
         });
 });
