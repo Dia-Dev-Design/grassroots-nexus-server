@@ -45,7 +45,7 @@ router.post('/', function(req, res, next) {
         })
         .catch((error) => {
             console.error('Error while creating admin ===> ', error);
-            res.status(500).json({ error: 'Failed to create admin' });
+            res.status(400).json({ error: 'Failed to create admin' });
         });
 });
   
@@ -59,7 +59,7 @@ router.put('/:adminId', function(req, res, next) {
             res.status(200).json(updatedAdmin)
         })
         .catch((error) => {
-            console.log('Error while updating admin ===> ', error);
+            console.error('Error while updating admin ===> ', error);
             res.status(500).json({ error: 'Failed to update admin' });
         });
 });
@@ -71,10 +71,10 @@ router.delete('/:adminId', function(req, res, next) {
       Admin.findByIdAndDelete(adminId)
         .then((deletedAdmin) => {
             console.log('Admin deleted ===> ', deletedAdmin);
-            res.status(200).json(deletedAdmin);
+            res.status(204).json(deletedAdmin);
         })
         .catch((error) => {
-            console.log('Error while deleting admin ===> ', error);
+            console.error('Error while deleting admin ===> ', error);
             res.status(500).json({ error: 'Failed to delete admin' });
         });
 });
