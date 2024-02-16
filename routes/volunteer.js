@@ -48,7 +48,7 @@ router.post('/', function(req, res, next) {
         })
         .catch((error) => {
             console.error('Error while creating Volunteer ===> ', error);
-            res.status(500).json({ error: 'Failed to create Volunteer' });
+            res.status(400).json({ error: 'Failed to create Volunteer' });
         });
 });
   
@@ -62,7 +62,7 @@ router.put('/:volunteerId', function(req, res, next) {
             res.status(200).json(updatedVolunteer)
         })
         .catch((error) => {
-            console.log('Error while updating Volunteer ===> ', error);
+            console.error('Error while updating Volunteer ===> ', error);
             res.status(500).json({ error: 'Failed to update Volunteer' });
         });
 });
@@ -74,10 +74,10 @@ router.delete('/:volunteerId', function(req, res, next) {
       Volunteer.findByIdAndDelete(volunteerId)
         .then((deletedVolunteer) => {
             console.log('Volunteer deleted ===> ', deletedVolunteer);
-            res.status(200).json(deletedVolunteer);
+            res.status(204).json(deletedVolunteer);
         })
         .catch((error) => {
-            console.log('Error while deleting Volunteer ===> ', error);
+            console.error('Error while deleting Volunteer ===> ', error);
             res.status(500).json({ error: 'Failed to delete Volunteer' });
         });
 });
